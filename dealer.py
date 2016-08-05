@@ -75,7 +75,9 @@ class Dealer:
 			return number
 
 	def hit(self, player):
-		score = self.getValue(player.hand[0][0]) + self.getValue(player.hand[1][0])
+		score = 0
+		if len(player.hand) == 2:
+			score = self.getValue(player.hand[0][0]) + self.getValue(player.hand[1][0])
 		card = self.getCard()
 		player.giveCard(card)
 		temp = self.getValue(card[0])
